@@ -1,0 +1,12 @@
+<div style="max-width: 250px;" class="container mb-5">
+  <h4 style="font-size: 21px; font-weight: 500;" [ngClass]="{'strike': !todo.active}">{{ todo.title }}</h4>
+  <p [ngClass]="{'strike': !todo.active}">{{ todo.desc }}</p>
+  <div class="form-check">
+    <input class="form-check-input" [checked]="todo.active" type="checkbox" (click)="onCheck()" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      {{ todo.active ? "Active" : "Not Active" }}
+    </label>
+  </div>
+  <mat-icon class="icon edit" (click)="openDialog()">edit</mat-icon>
+  <button type="button" class="btn btn-danger button" (click)="onClick()" >Delete</button>
+</div>

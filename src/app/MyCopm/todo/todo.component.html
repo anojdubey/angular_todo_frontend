@@ -1,0 +1,21 @@
+<div>
+  <h2 class="text-center mb-4 p-2">Todo List of {{ this.currentUser.name }}</h2>
+
+  <div class="container add-box">
+    <app-add-todo [todos]="todos" (addTodo)="todoAdd($event)"></app-add-todo>
+  </div>
+  <h4 style="text-align: center;" class="mb-3">Your Todo List</h4>
+<div class="container" *ngIf="this.todos.length===0; else elseBlock">Please Add Some Todos</div>
+<ng-template #elseBlock>
+  <div class="container box-container">
+    <div class="container box" *ngFor="let todo of todos">
+      <app-todo-item
+        [todo]="todo"
+        (todoCheck)="checkTodo($event)"
+        (todoDelete)="deleteTodo($event)"
+        (todoEdit)="editTodo($event)"
+      ></app-todo-item>
+    </div>
+  </div>
+  </ng-template>
+</div>

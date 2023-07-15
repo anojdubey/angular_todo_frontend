@@ -1,0 +1,14 @@
+.strike{
+    text-decoration: line-through;
+    color: #cdcdcd;
+}
+.button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.edit{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
