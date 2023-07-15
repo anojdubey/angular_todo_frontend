@@ -28,7 +28,7 @@ export class TodoComponent {
   getTodo = (currentUser: User) => {
     console.log('Get todo', currentUser)
     return this.http
-      .post('http://localhost:5000/todo', { name: currentUser.name })
+      .post('https://todo-backend-bdxf.onrender.com/todo', { name: currentUser.name })
       .subscribe((res: any) => {
         this.todos = res.todos
         console.log(this.todos[0]._id)
@@ -38,14 +38,14 @@ export class TodoComponent {
     const index = this.todos.indexOf(todo)
     const id = todo._id
     return this.http
-      .delete(`http://localhost:5000/deletetodo/${id}`)
+      .delete(`https://todo-backend-bdxf.onrender.com/deletetodo/${id}`)
       .subscribe(() => {
         alert('Todo Deleted')
         this.getTodo(this.currentUser)
       })
   }
   editTodo = (todo: Todo) => {
-    return this.http.put(`http://localhost:5000/edit`, todo).subscribe(() => {
+    return this.http.put(`https://todo-backend-bdxf.onrender.com/edit`, todo).subscribe(() => {
       alert('Todo Edited')
       this.getTodo(this.currentUser)
     })
@@ -53,7 +53,7 @@ export class TodoComponent {
   todoAdd = async (todo: Todo) => {
     console.log('Add todo', todo)
     return this.http
-      .post('http://localhost:5000', { ...todo, name: this.currentUser.name })
+      .post('https://todo-backend-bdxf.onrender.com', { ...todo, name: this.currentUser.name })
       .subscribe((res) => {
         this.getTodo(this.currentUser)
         alert('Todo Added')
